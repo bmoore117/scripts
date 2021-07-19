@@ -1,0 +1,1 @@
+﻿msiexec.exe /i 7z1900-x64.msi MSIINSTALLPERUSER=1
