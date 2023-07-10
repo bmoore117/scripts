@@ -1,5 +1,5 @@
 ﻿mkdir jdk
-cp .\jdk-8u202-windows-x64.exe .\.jdk
+cp .\jdk-8u202-windows-x64.exe .\jdk
 cd .\jdk
 7z.exe e .\jdk-8u202-windows-x64.exe -y
 7z.exe e .\111 -y
