@@ -50,9 +50,7 @@ if ($File3 -ne $null -and $File3 -ne "") {
     }
 }
 
-$date = Get-Date
-$isoDateString = Get-Date -Date $date -UFormat "%Y-%m-%d"
-
+$isoDateString = Get-Date -UFormat "%Y-%m-%d"
 
 $body = $null
 if ($UseLiveSearch.IsPresent) {
@@ -78,6 +76,7 @@ if ($UseLiveSearch.IsPresent) {
                     type = "news"
                 }
             )
+            max_search_results = 30
         }
     } | ConvertTo-Json -Depth 10
 } else {
@@ -117,6 +116,7 @@ try {
     $response = Invoke-RestMethod -Uri "https://api.x.ai/v1/chat/completions" -Method Post -Headers $headers -Body $body
     # replace goddamn em dashes that llms love so much and which do not render properly in powershell 5.1
     $asciiFied = $response.choices[0].message.content -replace "\u00e2", " - "
+    $asciiFied = $asciiFied -replace "[^\x00-\x7F]+", ""
     Write-Output $asciiFied
 } catch {
     Write-Error "Error invoking API: $_"
