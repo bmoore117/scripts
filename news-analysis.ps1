@@ -1,6 +1,6 @@
 $isoDateString = Get-Date -UFormat "%Y-%m-%d"
 
-$ada24HrChg = Import-Csv ~\Documents\Rainmeter\Skins\trademeter\Ticker\data-ada.csv
+$ada24HrChg = Import-Csv ~\OneDrive\Documents\Rainmeter\Skins\trademeter\Ticker\data-ada.csv
 $ada24HrChg = [double]$ada24HrChg.DayChange
 $adaStatus = $null
 if ($ada24hrChg -gt 0) {
@@ -9,7 +9,7 @@ if ($ada24hrChg -gt 0) {
 	$adaStatus = "down"
 }
 
-$btc24HrChg = Import-Csv ~\Documents\Rainmeter\Skins\trademeter\Ticker\data-btc.csv
+$btc24HrChg = Import-Csv ~\OneDrive\Documents\Rainmeter\Skins\trademeter\Ticker\data-btc.csv
 $btc24HrChg = $btc24HrChg.DayChange
 $btcStatus = $null
 if ($btc24hrChg -gt 0) {
