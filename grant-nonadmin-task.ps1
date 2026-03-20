@@ -4,8 +4,11 @@ Param(
     [Parameter(Mandatory=$true)]
     [String] $Folder,
     [Parameter(Mandatory=$true)]
-    [switch] $TaskName
+    [String] $TaskName
 )
+
+# Example Usage
+# .\grant-nonadmin-task.ps1 -User "moore" -Folder "\" -TaskName "Update Steam Games"
 
 $account = New-Object System.Security.Principal.NTAccount($User)  
 $SID=$account.Translate([System.Security.Principal.SecurityIdentifier]).Value
